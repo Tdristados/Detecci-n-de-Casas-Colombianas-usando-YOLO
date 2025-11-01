@@ -45,7 +45,7 @@ python src/train_yolo.py --data data --yaml data/data.yaml \
 
 ## Inferencia (CLI, una imagen → JSON)
 ```bash
-python src/inferencia.py --weights models/house-yolo.pt \
+python src/inferencia.py --weights models/best.pt \
                          --image data/valid/images/ejemplo.jpg --conf 0.25
 # Salida:
 # [ {"class":"house","score":0.92,"bbox":[x1,y1,x2,y2]}, ... ]

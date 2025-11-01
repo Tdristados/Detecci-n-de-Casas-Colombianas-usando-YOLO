@@ -22,7 +22,7 @@ from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from ultralytics import YOLO
 
-MODEL_PATH = os.getenv("MODEL_PATH", "../model/best.pt")
+MODEL_PATH = os.getenv("MODEL_PATH", "./model/best.pt")
 CONF = float(os.getenv("CONF", "0.25"))
 
 _model = None
@@ -31,7 +31,7 @@ def get_model():
     if _model is None:
         if not os.path.isfile(MODEL_PATH):
             raise FileNotFoundError(f"No se encontró el modelo en {MODEL_PATH}. "
-                                    "Configura MODEL_PATH o coloca tus pesos en ../model/best.pt")
+                                    "Configura MODEL_PATH o coloca tus pesos en ./model/best.pt")
         _model = YOLO(MODEL_PATH)
     return _model
 
